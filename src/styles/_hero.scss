@@ -1,0 +1,144 @@
+@use 'variaveis';
+
+.hero{
+    padding: 5.6vw;
+    position: relative;
+    min-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: variaveis.$corTextoPrincipal;
+
+    @media (max-width: 768px){
+            margin-top: calc(5.6vw - 100px);
+            align-items: flex-end;
+            display: flex;
+            justify-content: center;
+        }
+
+    &__bg-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    animation: 20s ease-in-out infinite;
+    background-size: cover;
+    background-position: top center;
+
+
+        &-1--active {
+            background-image: url('../images/hero/heroimg1.jpg');
+            animation-name: fade1;
+            @media (max-width: 768px){
+                background-image: url('../images/elenco/donvito.webp');
+                background-position:top ;
+            }
+        }
+        &-2--active {
+            background-image: url('../images/hero/heroimg2.png');
+            animation-name: fade2;
+            @media (max-width: 768px){
+                background-image: url('../images/elenco/michaelcorleone.webp');
+                background-position:top ;   
+            }
+        }
+    }
+    
+    &__content {
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+
+        @media (max-width: 768px) {
+            z-index: 0;
+            max-width: 70%;
+            margin-bottom:40px;
+            align-items: center;
+        }
+
+
+        &__brand{
+            margin-bottom: 30px;
+
+            @media (max-width: 768px) {
+                margin: 0;
+            }
+            @media (min-width:769px) and (max-width: 1023px) {
+            z-index: 0;
+            max-width: 300px;
+            margin-bottom:40px;
+            align-items: center;
+        }
+            img{
+                max-width: 500px;
+                @media (max-width: 768px) {
+                max-width: 100%;
+                height: 200px;
+                margin-bottom: 20PX;
+                }     
+                @media (min-width:769px) and (max-width: 1023px) {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        &__rate{
+            width: 400px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 50px;
+
+            @media (max-width: 768px){
+                justify-content: center;
+                width: 300px;
+            }
+            @media (min-width:769px) and (max-width: 1023px) {
+                    max-width: 300px;
+                }
+
+            &__icon{
+                height: 25px;
+                color: variaveis.$corDeFundo;
+                font-weight: bolder;
+            }
+
+            p{
+                margin-left: 25px;
+                background-color: #c0c0c033;
+                padding: 3px;
+                text-align: center;
+                border-radius: 3px;
+                width: 70px;
+                
+            }
+        }
+        h1 {
+            @media (min-width:769px) and (max-width: 1023px) {
+                    max-width: 300px;
+                    text-align: center;
+                }
+        }
+    }
+}
+
+/* Carousel com keyframes*/
+@keyframes fade1 {
+    0%, 50% {
+        opacity: 1;
+    }
+    50.1%, 100% {
+    opacity: 0;
+    }
+}
+
+@keyframes fade2 {
+    0%, 49.9% {
+        opacity: 0;
+    }
+    50%, 100% {
+        opacity: 1;
+    }
+}
+
